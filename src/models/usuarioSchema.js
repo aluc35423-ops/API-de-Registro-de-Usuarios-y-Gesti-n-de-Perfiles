@@ -4,11 +4,14 @@ const usuarioSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        lowercase: true, 
+        trim: true
     },
     password:{
         type: String,
-        required: true
+        required: true,
+        select: false
     },
     nombre: {
         type: String,
