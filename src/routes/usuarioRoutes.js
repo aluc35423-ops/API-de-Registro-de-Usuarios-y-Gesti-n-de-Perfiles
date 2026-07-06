@@ -61,4 +61,58 @@ router.post("/register", usuarioController.registerUsuario);
  */
 router.get("/perfil/:id", usuarioController.GetOne);
 
+/**
+ * @swagger
+ * /api/usuarios/{id}:
+ *   put:
+ *     summary: Actualizar usuario
+ *     tags: [Usuarios]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: "juan@apirugp.edu"
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 example: "Apirugp12#"
+ *               nombre:
+ *                 type: string
+ *                 example: "Juan"
+ *     responses:
+ *       200:
+ *         description: Usuario actualizado
+ */
+router.put("/:id", usuarioController.UpdateOneUser);
+
+/**
+ * @swagger
+ * /api/usuarios/{id}:
+ *   delete:
+ *     summary: Eliminar usuario
+ *     tags: [Usuarios]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Usuario eliminado
+ */
+router.delete("/:id", usuarioController.DeleteOne);
+
 module.exports = router;
