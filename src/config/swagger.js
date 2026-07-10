@@ -14,7 +14,7 @@ const options = {
             description: 'Servidor Local'
         },
         {
-            url: 'https://tu-api-en-vercel.vercel.app', 
+            url: 'https://api-de-registro-de-usuarios-y-gesti.vercel.app', 
             description: 'Servidor de Producción'
         }
     ],
