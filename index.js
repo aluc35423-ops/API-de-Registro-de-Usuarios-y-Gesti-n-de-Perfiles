@@ -22,13 +22,20 @@ app.use(express.json()); // Communication
 connectDB();
 
 const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css";
+const JS_URLS = [
+    "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui-bundle.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui-standalone-preset.min.js"
+];
 
 app.get('/', (req, res) => {
     res.redirect('/api-docs');
 });
 
 // Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
+    customCssUrl: CSS_URL,
+    customJs: JS_URLS
+}));
 
 //Rutas base de RUGP
 app.use("/api/usuarios", usuariosRoutes);
