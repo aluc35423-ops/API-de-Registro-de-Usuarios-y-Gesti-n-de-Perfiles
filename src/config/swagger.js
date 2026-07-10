@@ -11,7 +11,12 @@ const options = {
     servers: [
         {
             url: 'http://localhost:5100',
+            description: 'Servidor Local'
         },
+        {
+            url: 'https://tu-api-en-vercel.vercel.app', 
+            description: 'Servidor de Producción'
+        }
     ],
     components: {
         securitySchemes: {
