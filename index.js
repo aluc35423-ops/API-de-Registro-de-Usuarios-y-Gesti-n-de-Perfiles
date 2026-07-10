@@ -29,3 +29,5 @@ app.listen(PORT, () => {
     console.log(`Servidor de API-RUGP corriendo en: http://localhost:${PORT}`);
     console.log(`Revisa la documentación en: http://localhost:${PORT}/api-docs`);
 });
+
+module.exports = app;
