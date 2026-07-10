@@ -23,6 +23,10 @@ connectDB();
 
 const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css";
 
+app.get('/', (req, res) => {
+    res.redirect('/api-docs');
+});
+
 // Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
