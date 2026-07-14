@@ -9,16 +9,6 @@ const options = {
         version: '1.0.0',
         description: 'API de Registro de Usuarios y Gestión de Perfiles',
     },
-    servers: [
-        {
-            url: 'http://localhost:5100',
-            description: 'Servidor Local'
-        },
-        {
-            url: 'https://api-de-registro-de-usuarios-y-gesti.vercel.app', 
-            description: 'Servidor de Producción'
-        }
-    ],
     components: {
         securitySchemes: {
             bearerAuth: {
