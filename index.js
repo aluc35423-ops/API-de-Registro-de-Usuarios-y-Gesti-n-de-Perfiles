@@ -37,6 +37,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
     customJs: JS_URLS
 }));
 
+const appTokenValidator = require('./src/middlewares/appTokenValidator');
+app.use(appTokenValidator);
+
 //Rutas base de RUGP
 app.use("/api/usuarios", usuariosRoutes);
 
