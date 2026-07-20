@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const connectDB = require('./src/config/database');
 
 //RUTAS
@@ -14,6 +15,17 @@ const swaggerSpecs = require('./src/config/swagger');
 
 const app = express();
 const PORT = process.env.PORT || 5100;
+
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com"],
+            imgSrc: ["'self'", "data:", "https://validator.swagger.io"]
+        }
+    }
+}));
 
 app.use(cors());
 app.use(express.json()); // Communication
